@@ -1,4 +1,5 @@
 import express from 'express';
+import order from './routes/order.route';
 import products from './routes/product.route';
 import users from './routes/user.route';
 
@@ -8,5 +9,6 @@ app.use(express.json());
 
 app.use('/products', products);
 app.use('/users', users);
+app.use('/orders', order);
 
 export default app;
