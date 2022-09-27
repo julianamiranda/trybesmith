@@ -1,7 +1,7 @@
 import { Pool } from 'mysql2/promise';
 import Order from '../interface/order.interface';
 
-class ProductModel {
+class OrderModel {
   public connection: Pool;
 
   constructor(connection: Pool) {
@@ -19,6 +19,6 @@ class ProductModel {
   }
 }
 
-export default ProductModel;
+export default OrderModel;
 
 // JSON_ARRAYAGG: Peguei a dica dessa thread(https://trybecourse.slack.com/archives/C02TH6V3MC5/p1663109003125079?thread_ts=1663108652.307629&cid=C02TH6V3MC5)
