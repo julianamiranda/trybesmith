@@ -13,6 +13,10 @@ class OrderService {
     const result = await this.model.getAll();
     return result;
   }
+
+  public create(order: Order) {
+    return this.model.create(order);
+  }
 }
 
 export default OrderService;

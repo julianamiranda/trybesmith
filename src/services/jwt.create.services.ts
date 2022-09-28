@@ -12,7 +12,7 @@ function createToken({ id, username }: User) {
     algorithm: 'HS256',
   };
 
-  const token = jwt.sign({ data: { id, username } }, secret, jwtConfig);
+  const token = jwt.sign({ id, username }, secret, jwtConfig);
   return token;
 }
 
