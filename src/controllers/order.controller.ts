@@ -20,8 +20,7 @@ class OrderController {
     const info = jwt.decode(authorization) as InfoToken;
 
     const result = await this.orderService.create({ userId: info.id, productsIds });
-    console.log(result);
-    return res.status(StatusCodes.CREATED).json({ userId: info.id, productsIds });
+    return res.status(StatusCodes.CREATED).json(result);
   };
 }
 
