@@ -12,6 +12,10 @@ class UserService {
   public create(product: User): Promise<User> {
     return this.model.create(product);
   }
+
+  public login(login: User): Promise<User> {
+    return this.model.login(login);
+  }
 }
 
 export default UserService;

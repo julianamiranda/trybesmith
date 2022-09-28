@@ -1,9 +1,10 @@
 import dotenv from 'dotenv';
 import jwt, { SignOptions } from 'jsonwebtoken';
+import User from '../interface/user.interface';
 
 dotenv.config();
 
-function createToken(data: string) {
+function createToken({ id, username }: User) {
   const secret = 'senha-super-secreta';
 
   const jwtConfig: SignOptions = {
@@ -11,7 +12,7 @@ function createToken(data: string) {
     algorithm: 'HS256',
   };
 
-  const token = jwt.sign({ data }, secret, jwtConfig);
+  const token = jwt.sign({ data: { id, username } }, secret, jwtConfig);
   return token;
 }
 

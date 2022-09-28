@@ -8,10 +8,20 @@ class UserController {
 
   public create = async (req: Request, res: Response) => {
     const data = req.body;
-    await this.userService.create(data);
-    const token = createToken(data.username);
+    const result = await this.userService.create(data);
+    const token = createToken(result);
 
-    res.status(StatusCodes.CREATED).json({ token });
+    return res.status(StatusCodes.CREATED).json({ token });
+  };
+
+  public login = async (req: Request, res: Response) => {
+    const data = req.body;
+    const result = await this.userService.login(data);
+    if (!result) {
+      return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Username or password invalid' });
+    }
+    const token = createToken(result);
+    return res.status(StatusCodes.OK).json({ token });
   };
 }
 
